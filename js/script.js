@@ -59,8 +59,10 @@ const result = document.getElementById('risultato');
   let computerNumber = Math.floor(Math.random() * 6) + 1;
   playerPoint += playerNumber;
   computerPoint += computerNumber;
+  const dadiVoce = document.getElementById('dadi-audio');
+  dadiVoce.innerHTML = dadiVoce.play(); 
 
- 
+  
 
   if (playerPoint > computerPoint) {
     message2 = 'Hai vinto tu';
