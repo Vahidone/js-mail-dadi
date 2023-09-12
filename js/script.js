@@ -25,10 +25,12 @@ btnValidation.addEventListener('click', function () {
 if (autorizzateEmails.includes(inputEmail)) {
   message = 'Accesso consentito. Benvenuto!';
   printMessage.innerHTML = message;
+  printMessage.classList.add('text-success');
 }
 else {
-  message = 'Accesso negato. Indirizzo email non è autorizzato';
+  message = "Accesso negato. L'indirizzo email non è autorizzato";
   printMessage.innerHTML = message;
+  printMessage.classList.add('text-danger');
   console.log(message);
 }
 
