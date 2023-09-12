@@ -59,18 +59,34 @@ const result = document.getElementById('risultato');
   let computerNumber = Math.floor(Math.random() * 6) + 1;
   playerPoint += playerNumber;
   computerPoint += computerNumber;
+  const dadoPlayer = document.getElementById('dado-player');
+  const dadoPc = document.getElementById('dado-pc');
+  dadoPlayer.innerHTML = playerPoint;
+  dadoPc.innerHTML =  computerPoint;
+
+  // facciamo apparire i punteggi di player e di pc 
+  dadoPlayer.classList.remove('d-none');
+  dadoPlayer.classList.add('d-inline-block', 'bg-warning');
+  dadoPc.classList.remove('d-none');
+  dadoPc.classList.add('d-inline-block', 'bg-secondary', 'text-white');
+
+
+  // aggiungo anche audio per i dadi 
   const dadiVoce = document.getElementById('dadi-audio');
   dadiVoce.innerHTML = dadiVoce.play(); 
 
   
 
   if (playerPoint > computerPoint) {
-    message2 = 'Hai vinto tu';
+    message2 = 'BRAVOOOOOOOOOO Hai vinto :)';
+    result.classList.add('text-white', 'bg-success', 'p-3')
 
   }else if (playerPoint < computerPoint ) {
-    message2 = 'Ha vinto il computer';
+    message2 = 'Oops!! Ha vinto il computer :(';
+    result.classList.add('text-light', 'bg-secondary', 'p-3')
   }else {
-    message2 = 'hai pareggiato';
+    message2 = 'avete pareggiato';
+    result.classList.add('text-primary', 'bg-light', 'p-3')
   }
   
   result.innerHTML = message2;
