@@ -36,54 +36,13 @@ if (autorizzateEmails.includes(inputEmail)) {
   printMessage.innerHTML = message;
   printMessage.classList.add('text-success');
 
-  // dare una funzione al bottone GIOCA 
-  bottonePlay.addEventListener('click', function () {
-    let playerPoint = 0;
-    let computerPoint = 0;
-    let playerNumber = Math.floor(Math.random() * 6) + 1;
-    let computerNumber = Math.floor(Math.random() * 6) + 1;
-    playerPoint += playerNumber;
-    computerPoint += computerNumber;
-    const dadoPlayer = document.getElementById('dado-player');
-    const dadoPc = document.getElementById('dado-pc');
-    dadoPlayer.innerHTML = playerPoint;
-    dadoPc.innerHTML =  computerPoint;
-  
-    // facciamo apparire i punteggi di player e di pc 
-    dadoPlayer.classList.remove('d-none');
-    dadoPlayer.classList.add('d-inline-block', 'bg-warning');
-    dadoPc.classList.remove('d-none');
-    dadoPc.classList.add('d-inline-block', 'bg-secondary', 'text-white');
-  
-  
-    // aggiungo anche audio per i dadi 
-    const dadiVoce = document.getElementById('dadi-audio');
-    dadiVoce.innerHTML = dadiVoce.play(); 
-  
-    
-  
-    if (playerPoint > computerPoint) {
-      message2 = 'BRAVOOOOOOOOOO Hai vinto :)';
-      result.classList.add('text-white', 'bg-success', 'p-3')
-  
-    }else if (playerPoint < computerPoint ) {
-      message2 = 'Oops!! Ha vinto il computer :(';
-      result.classList.add('text-light', 'bg-secondary', 'p-3')
-    }else {
-      message2 = 'avete pareggiato';
-      result.classList.add('text-primary', 'bg-light', 'p-3')
-    }
-    
-    result.innerHTML = message2;
-    
-   });
 }
 
 else {
-  message = "Accesso negato al Gioco dei dadi. L'indirizzo email non è autorizzato";
+  message = "Accesso negato. L'indirizzo email non è autorizzato";
   printMessage.innerHTML = message;
   printMessage.classList.add('text-danger');
-  document.getElementById('space-game').classList.add('bg-danger');
+  
 }
 
 });
@@ -91,7 +50,7 @@ else {
 // operazione di  RESET 
 btnReset.addEventListener('click', function () {
   printMessage.classList.add('d-none');
-  location.reload()
+  location.reload();
 });
 
 
@@ -106,7 +65,47 @@ const bottonePlay = document.getElementById('btn-play');
 const result = document.getElementById('risultato');
 
 
+ // dare una funzione al bottone GIOCA 
+ bottonePlay.addEventListener('click', function () {
+  let playerPoint = 0;
+  let computerPoint = 0;
+  let playerNumber = Math.floor(Math.random() * 6) + 1;
+  let computerNumber = Math.floor(Math.random() * 6) + 1;
+  playerPoint += playerNumber;
+  computerPoint += computerNumber;
+  const dadoPlayer = document.getElementById('dado-player');
+  const dadoPc = document.getElementById('dado-pc');
+  dadoPlayer.innerHTML = playerPoint;
+  dadoPc.innerHTML =  computerPoint;
 
+  // facciamo apparire i punteggi di player e di pc 
+  dadoPlayer.classList.remove('d-none');
+  dadoPlayer.classList.add('d-inline-block', 'bg-warning');
+  dadoPc.classList.remove('d-none');
+  dadoPc.classList.add('d-inline-block', 'bg-secondary', 'text-white');
+
+
+  // aggiungo anche audio per i dadi 
+  const dadiVoce = document.getElementById('dadi-audio');
+  dadiVoce.innerHTML = dadiVoce.play(); 
+
+  
+
+  if (playerPoint > computerPoint) {
+    message2 = 'BRAVOOOOOOOOOO Hai vinto :)';
+    result.classList.add('text-white', 'bg-success', 'p-3')
+
+  }else if (playerPoint < computerPoint ) {
+    message2 = 'Oops!! Ha vinto il computer :(';
+    result.classList.add('text-light', 'bg-secondary', 'p-3')
+  }else {
+    message2 = 'avete pareggiato';
+    result.classList.add('text-primary', 'bg-light', 'p-3')
+  }
+  
+  result.innerHTML = message2;
+  
+ });
  
 //  dare una funzione reset al bottone Annulla 
 
