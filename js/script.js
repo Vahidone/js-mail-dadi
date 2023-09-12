@@ -12,6 +12,7 @@ const autorizzateEmails= [
   'ospite5@esempio.com'
 ];
 
+
 let message;
 // decidere dove va stampato il messaggio 
 const printMessage = document.getElementById('print-message');
@@ -20,6 +21,8 @@ const printMessage = document.getElementById('print-message');
 const btnValidation = document.getElementById('button-verifica')
 // il bottone di reset 
 const btnReset = document.getElementById('button-reset');
+
+
 
 // dare una funzione al buttone di verifica 
 btnValidation.addEventListener('click', function () {
@@ -75,11 +78,12 @@ if (autorizzateEmails.includes(inputEmail)) {
     
    });
 }
+
 else {
   message = "Accesso negato al Gioco dei dadi. L'indirizzo email non è autorizzato";
   printMessage.innerHTML = message;
   printMessage.classList.add('text-danger');
-  console.log(message);
+  document.getElementById('space-game').classList.add('bg-danger');
 }
 
 });
