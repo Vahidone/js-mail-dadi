@@ -24,6 +24,7 @@ const btnReset = document.getElementById('button-reset');
 
 
 
+
 // dare una funzione al buttone di verifica 
 btnValidation.addEventListener('click', function () {
   // chiedere all'utente di inserire la sua email 
@@ -45,13 +46,14 @@ else {
   
 }
 
+
 });
 
 // operazione di  RESET 
 btnReset.addEventListener('click', function () {
   printMessage.classList.add('d-none');
-  location.reload();
-});
+  document.getElementById('input-email').value = '';
+}); 
 
 
 
@@ -63,7 +65,8 @@ btnReset.addEventListener('click', function () {
 let message2;
 const bottonePlay = document.getElementById('btn-play');
 const result = document.getElementById('risultato');
-
+const dadoPlayer = document.getElementById('dado-player');
+const dadoPc = document.getElementById('dado-pc');
 
  // dare una funzione al bottone GIOCA 
  bottonePlay.addEventListener('click', function () {
@@ -73,8 +76,6 @@ const result = document.getElementById('risultato');
   let computerNumber = Math.floor(Math.random() * 6) + 1;
   playerPoint += playerNumber;
   computerPoint += computerNumber;
-  const dadoPlayer = document.getElementById('dado-player');
-  const dadoPc = document.getElementById('dado-pc');
   dadoPlayer.innerHTML = playerPoint;
   dadoPc.innerHTML =  computerPoint;
 
@@ -113,7 +114,11 @@ const bottoneAnnulla = document.getElementById('btn-annulla');
 
 bottoneAnnulla.addEventListener('click', function() {
   result.classList.add('d-none');
-  location.reload();
+  dadoPlayer.classList.add('d-none');
+  dadoPc.classList.add('d-none');
+  dadoPlayer.innerHTML = '';
+  dadoPc.innerHTML = '';
+  
 });
 
 
